@@ -3,17 +3,17 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f3ead8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4ead9">
   <meta name="description" content="Memory Angkatan 3 — setiap foto menyimpan cerita, setiap cerita menjadi kenangan.">
-  <title>Memory Angkatan 3 | Cerita Kita</title>
+  <title>Memory Angkatan 3</title>
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
     :root {
-      --paper: #f3ead8;
-      --paper-dark: #e6d7bd;
+      --paper: #f4ead9;
+      --paper-dark: #e5d5bb;
       --ink: #35271e;
       --brown: #79553b;
       --muted: #887560;
@@ -32,16 +32,10 @@
     }
 
     body {
-      background:
-        radial-gradient(ellipse at 10% 10%, #fff9ec 0, transparent 42%),
-        var(--paper);
+      background: var(--paper);
       color: var(--ink);
       font-family: 'DM Sans', sans-serif;
       line-height: 1.7;
-    }
-
-    button, a {
-      -webkit-tap-highlight-color: transparent;
     }
 
     a {
@@ -49,8 +43,12 @@
       text-decoration: none;
     }
 
+    button {
+      font: inherit;
+    }
+
     .container {
-      width: min(1080px, 90%);
+      width: min(1050px, 90%);
       margin: auto;
     }
 
@@ -60,14 +58,13 @@
       align-items: center;
       padding: 22px 0;
       border-bottom: 1px solid var(--line);
-      gap: 20px;
+      gap: 15px;
     }
 
     .brand {
       font-family: 'Playfair Display', serif;
       font-size: 1.15rem;
       font-weight: 700;
-      letter-spacing: -0.5px;
     }
 
     .brand span {
@@ -76,27 +73,24 @@
 
     .nav-links {
       display: flex;
-      gap: 25px;
-      font-size: .88rem;
+      gap: 22px;
       color: var(--muted);
+      font-size: .88rem;
     }
 
     .nav-links a:hover {
-      color: var(--ink);
+      color: var(--brown);
     }
 
     .hero {
-      padding: 76px 0 65px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
       gap: 55px;
+      padding: 75px 0 85px;
     }
 
     .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
       color: var(--brown);
       text-transform: uppercase;
       letter-spacing: 2.5px;
@@ -104,23 +98,15 @@
       font-weight: 700;
     }
 
-    .eyebrow::before {
-      content: "";
-      width: 25px;
-      height: 1px;
-      background: var(--brown);
-    }
-
-    h1, h2, h3, blockquote {
+    h1, h2, blockquote {
       font-family: 'Playfair Display', serif;
     }
 
     h1 {
-      font-size: clamp(2.7rem, 5vw, 4.8rem);
-      line-height: 1.08;
+      font-size: clamp(2.7rem, 5vw, 4.7rem);
+      line-height: 1.1;
       letter-spacing: -2px;
-      margin: 20px 0;
-      font-weight: 600;
+      margin: 18px 0;
     }
 
     h1 em {
@@ -131,50 +117,32 @@
     .hero-copy p {
       max-width: 430px;
       color: var(--muted);
-      font-size: 1rem;
     }
 
-    .primary-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
+    .button-main {
+      display: inline-block;
       background: var(--ink);
       color: var(--white);
-      padding: 14px 21px;
-      margin-top: 28px;
+      padding: 13px 20px;
+      margin-top: 25px;
       border-radius: 3px;
-      font-size: .88rem;
-      transition: transform .2s, background .2s;
+      font-size: .9rem;
+      transition: .2s;
     }
 
-    .primary-button:hover {
-      transform: translateY(-2px);
+    .button-main:hover {
       background: var(--brown);
+      transform: translateY(-2px);
     }
 
-    .hero-photo-wrap {
-      position: relative;
-      padding: 12px;
+    .hero-frame {
       background: var(--white);
-      box-shadow: 0 16px 45px #5a40221a;
+      padding: 12px 12px 0;
+      box-shadow: 0 18px 40px #35271e18;
       transform: rotate(2deg);
     }
 
-    .hero-photo-wrap::before {
-      content: "OUR MEMORIES";
-      position: absolute;
-      z-index: 1;
-      top: -14px;
-      left: 50%;
-      transform: translateX(-50%) rotate(-3deg);
-      padding: 5px 15px;
-      background: #d6bc91;
-      color: #4b3423;
-      font-size: .65rem;
-      letter-spacing: 2px;
-    }
-
-    .hero-photo {
+    .hero-frame img {
       display: block;
       width: 100%;
       aspect-ratio: 4 / 3;
@@ -182,18 +150,22 @@
       background: var(--paper-dark);
     }
 
-    .photo-note {
-      padding: 12px 8px 5px;
+    .photo-caption {
       text-align: center;
+      padding: 13px 5px;
       font-family: 'Playfair Display', serif;
       font-style: italic;
       color: var(--muted);
-      font-size: .9rem;
+    }
+
+    .gallery-section {
+      border-top: 1px solid var(--line);
+      padding: 75px 0 90px;
     }
 
     .section-heading {
       text-align: center;
-      margin-bottom: 36px;
+      margin-bottom: 35px;
     }
 
     .section-heading h2 {
@@ -207,90 +179,81 @@
       font-size: .92rem;
     }
 
-    .gallery-section {
-      padding: 65px 0 85px;
-      border-top: 1px solid var(--line);
-    }
-
     .gallery-card {
-      max-width: 760px;
+      max-width: 750px;
       margin: auto;
-      padding: 18px;
+      padding: 17px;
       background: var(--white);
-      box-shadow: 0 18px 50px #5a40221a;
+      box-shadow: 0 18px 45px #35271e18;
     }
 
-    .gallery-photo {
+    .gallery-image {
       display: block;
       width: 100%;
-      height: clamp(250px, 55vw, 480px);
+      height: clamp(260px, 55vw, 460px);
       object-fit: contain;
-      background: #e8dece;
+      background: #e9dfcf;
     }
 
     .gallery-meta {
       display: flex;
       justify-content: space-between;
-      align-items: center;
       gap: 12px;
-      margin: 17px 0 10px;
+      margin: 16px 0 10px;
       color: var(--muted);
-      font-size: .76rem;
-      letter-spacing: 1.4px;
+      font-size: .73rem;
+      letter-spacing: 1.2px;
       text-transform: uppercase;
     }
 
     .counter {
-      font-variant-numeric: tabular-nums;
-      font-weight: 700;
       color: var(--brown);
+      font-weight: 700;
+      white-space: nowrap;
     }
 
     .quote-area {
-      text-align: center;
-      padding: 24px 10px 16px;
       border-top: 1px solid var(--line);
+      padding: 25px 10px 10px;
+      text-align: center;
     }
 
-    .quote-mark {
-      color: #b69a74;
+    .quote-symbol {
       font-family: 'Playfair Display', serif;
+      color: #b69a74;
       font-size: 3.5rem;
-      height: 48px;
       line-height: 1;
     }
 
-    .quote-area blockquote {
-      max-width: 600px;
+    blockquote {
+      max-width: 580px;
       margin: 10px auto;
-      font-size: clamp(1.25rem, 3vw, 1.8rem);
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
       line-height: 1.5;
     }
 
-    .quote-area p {
+    .quote-note {
       color: var(--muted);
       font-size: .85rem;
     }
 
-    .gallery-controls {
+    .controls {
       display: flex;
-      justify-content: center;
       align-items: center;
-      gap: 13px;
+      justify-content: center;
+      gap: 12px;
       flex-wrap: wrap;
-      margin-top: 22px;
+      margin-top: 23px;
     }
 
     .control-button {
       border: 1px solid var(--brown);
       background: transparent;
       color: var(--brown);
-      padding: 11px 18px;
+      padding: 10px 17px;
       border-radius: 3px;
       cursor: pointer;
-      font: inherit;
-      font-size: .86rem;
-      transition: background .2s, color .2s;
+      transition: .2s;
     }
 
     .control-button:hover:not(:disabled) {
@@ -306,65 +269,63 @@
     .dots {
       display: flex;
       justify-content: center;
-      gap: 9px;
-      margin-top: 19px;
+      gap: 10px;
+      margin-top: 20px;
     }
 
     .dot {
-      width: 8px;
-      height: 8px;
+      width: 9px;
+      height: 9px;
       border: 0;
       border-radius: 50%;
       background: #cbb89c;
       cursor: pointer;
-      padding: 0;
     }
 
     .dot.active {
       background: var(--brown);
-      transform: scale(1.25);
+      transform: scale(1.3);
     }
 
     .closing {
       padding: 65px 20px;
+      background: var(--paper-dark);
       text-align: center;
-      background: #e8ddc9;
-      border-top: 1px solid var(--line);
     }
 
     .closing h2 {
-      font-size: clamp(1.7rem, 4vw, 2.6rem);
-      margin-bottom: 12px;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      margin: 10px 0;
     }
 
     .closing p {
-      max-width: 500px;
+      max-width: 550px;
       margin: auto;
       color: var(--muted);
-      font-size: .9rem;
+      font-size: .92rem;
     }
 
     footer {
-      padding: 24px 0;
+      padding: 25px 0;
       text-align: center;
       color: var(--muted);
-      font-size: .76rem;
+      font-size: .78rem;
     }
 
     @media (max-width: 700px) {
       .navbar {
-        padding: 18px 0;
+        padding: 17px 0;
       }
 
       .nav-links {
-        gap: 14px;
-        font-size: .8rem;
+        gap: 13px;
+        font-size: .78rem;
       }
 
       .hero {
         grid-template-columns: 1fr;
-        gap: 42px;
-        padding: 52px 0 65px;
+        gap: 40px;
+        padding: 55px 0 70px;
       }
 
       .hero-copy {
@@ -375,43 +336,36 @@
         margin: auto;
       }
 
-      .hero .eyebrow {
-        justify-content: center;
-      }
-
       h1 {
         letter-spacing: -1px;
       }
 
-      .hero-photo-wrap {
+      .hero-frame {
         width: 90%;
         margin: auto;
       }
 
       .gallery-section {
-        padding: 55px 0 65px;
+        padding: 60px 0;
       }
 
       .gallery-card {
-        padding: 11px;
+        padding: 10px;
       }
 
-      .gallery-photo {
+      .gallery-image {
         height: 300px;
       }
 
       .control-button {
-        padding: 10px 13px;
+        padding: 10px 12px;
+        font-size: .85rem;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
       html {
         scroll-behavior: auto;
-      }
-
-      *, *::before, *::after {
-        transition-duration: .01ms !important;
       }
     }
   </style>
@@ -423,7 +377,7 @@
       <a class="brand" href="#beranda">MEMORY <span>03.</span></a>
       <div class="nav-links">
         <a href="#beranda">Beranda</a>
-        <a href="#galeri">Galeri Kenangan</a>
+        <a href="#galeri">Galeri</a>
       </div>
     </nav>
   </header>
@@ -437,18 +391,15 @@
           Setiap foto menyimpan cerita, setiap cerita menjadi kenangan.
           Sebuah ruang kecil untuk menyimpan momen yang pernah kita lalui.
         </p>
-        <a class="primary-button" href="#galeri">
-          Jelajahi Kenangan <span aria-hidden="true">→</span>
-        </a>
+        <a class="button-main" href="#galeri">Jelajahi Kenangan →</a>
       </div>
 
-      <div class="hero-photo-wrap">
+      <div class="hero-frame">
         <img
-          class="hero-photo"
-          src="images/foto-sampul.jpg"
+          src="images/foto-utama.jpeg"
           alt="Foto sampul Memory Angkatan 3"
         >
-        <div class="photo-note">A little piece of our story.</div>
+        <div class="photo-caption">A little piece of our story.</div>
       </div>
     </section>
 
@@ -462,10 +413,10 @@
 
         <div class="gallery-card">
           <img
-            class="gallery-photo"
+            class="gallery-image"
             id="galleryImage"
-            src="images/galeri-1.jpg"
-            alt="Kenangan nomor 1 dari 4"
+            src="images/foto-1.jpg"
+            alt="Kenangan pertama"
           >
 
           <div class="gallery-meta">
@@ -474,14 +425,14 @@
           </div>
 
           <div class="quote-area" aria-live="polite">
-            <div class="quote-mark" aria-hidden="true">“</div>
+            <div class="quote-symbol" aria-hidden="true">“</div>
             <blockquote id="quote">
               Jangan takut berjalan perlahan, selama kamu tidak berhenti bertumbuh.
             </blockquote>
-            <p id="quoteNote">Tentang perjalanan kehidupan</p>
+            <p class="quote-note" id="quoteNote">Tentang perjalanan kehidupan</p>
           </div>
 
-          <div class="gallery-controls">
+          <div class="controls">
             <button class="control-button" id="previous" type="button">
               ← Sebelumnya
             </button>
@@ -505,31 +456,29 @@
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      Memory Angkatan 3 · Dibuat untuk menyimpan cerita.
-    </div>
+  <footer class="container">
+    Memory Angkatan 3 · Dibuat untuk menyimpan cerita.
   </footer>
 
   <script>
     const memories = [
       {
-        image: "images/galeri-1.jpg",
+        image: "images/foto-1.jpg",
         quote: "Jangan takut berjalan perlahan, selama kamu tidak berhenti bertumbuh.",
         note: "Tentang perjalanan kehidupan"
       },
       {
-        image: "images/galeri-2.jpg",
+        image: "images/foto-2.jpeg",
         quote: "Hal-hal sederhana sering kali menjadi kenangan yang paling berharga.",
         note: "Tentang arti sebuah kenangan"
       },
       {
-        image: "images/galeri-3.jpg",
+        image: "images/foto-3.jpeg",
         quote: "Kita tidak bisa mengulang waktu, tetapi kita bisa belajar dari setiap langkah.",
         note: "Tentang waktu dan pembelajaran"
       },
       {
-        image: "images/galeri-4.jpg",
+        image: "images/foto-4.jpeg",
         quote: "Jangan hanya mengejar tujuan; hargai juga perjalanan yang membawamu ke sana.",
         note: "Tentang proses dan masa depan"
       }
@@ -550,7 +499,7 @@
       const memory = memories[currentIndex];
 
       galleryImage.src = memory.image;
-      galleryImage.alt = `Kenangan nomor ${currentIndex + 1} dari ${memories.length}`;
+      galleryImage.alt = `Kenangan ${currentIndex + 1} dari ${memories.length}`;
       counter.textContent =
         `${String(currentIndex + 1).padStart(2, "0")} / ${String(memories.length).padStart(2, "0")}`;
 
