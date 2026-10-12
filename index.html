@@ -1,24 +1,25 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f4ead9">
-  <meta name="description" content="Memory Angkatan 3 — setiap foto menyimpan cerita, setiap cerita menjadi kenangan.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5efe5">
+  <meta name="description" content="Memory Angkatan 3 — Setiap foto menyimpan cerita, setiap cerita menjadi kenangan.">
   <title>Memory Angkatan 3</title>
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+  <style>
     :root {
-      --paper: #f4ead9;
-      --paper-dark: #e5d5bb;
-      --ink: #35271e;
-      --brown: #79553b;
-      --muted: #887560;
-      --line: #d5c3a6;
-      --white: #fffaf0;
+      --cream: #f5efe5;
+      --paper: #fffaf2;
+      --brown: #604832;
+      --dark: #33271f;
+      --muted: #8a7866;
+      --line: #dfd1bd;
+      --accent: #a7774e;
     }
 
     * {
@@ -32,9 +33,9 @@
     }
 
     body {
-      background: var(--paper);
-      color: var(--ink);
-      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      font-family: "DM Sans", sans-serif;
       line-height: 1.7;
     }
 
@@ -47,319 +48,342 @@
       font: inherit;
     }
 
-    .container {
-      width: min(1050px, 90%);
-      margin: auto;
-    }
-
     .navbar {
+      min-height: 76px;
+      padding: 18px 7%;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 22px 0;
+      justify-content: space-between;
+      gap: 20px;
       border-bottom: 1px solid var(--line);
-      gap: 15px;
+      background: rgba(245, 239, 229, 0.95);
     }
 
     .brand {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
+      font-family: "Playfair Display", serif;
+      font-size: 21px;
       font-weight: 700;
+      letter-spacing: -0.5px;
     }
 
     .brand span {
-      color: var(--brown);
+      color: var(--accent);
     }
 
-    .nav-links {
-      display: flex;
-      gap: 22px;
-      color: var(--muted);
-      font-size: .88rem;
-    }
-
-    .nav-links a:hover {
+    .nav-link {
       color: var(--brown);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
     .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 55px;
-      padding: 75px 0 85px;
+      padding: 75px 7% 85px;
+      max-width: 1400px;
+      margin: auto;
     }
 
     .eyebrow {
-      color: var(--brown);
-      text-transform: uppercase;
-      letter-spacing: 2.5px;
-      font-size: .72rem;
+      color: var(--accent);
+      font-size: 11px;
       font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
     }
 
-    h1, h2, blockquote {
-      font-family: 'Playfair Display', serif;
-    }
-
-    h1 {
-      font-size: clamp(2.7rem, 5vw, 4.7rem);
-      line-height: 1.1;
+    .hero h1 {
+      max-width: 800px;
+      margin: 15px 0 20px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(43px, 7vw, 82px);
+      font-weight: 500;
+      line-height: 1.12;
       letter-spacing: -2px;
-      margin: 18px 0;
     }
 
-    h1 em {
-      color: var(--brown);
+    .hero h1 em {
+      color: var(--accent);
       font-weight: 400;
     }
 
-    .hero-copy p {
-      max-width: 430px;
+    .hero-description {
+      max-width: 550px;
       color: var(--muted);
+      font-size: 15px;
     }
 
-    .button-main {
-      display: inline-block;
-      background: var(--ink);
-      color: var(--white);
-      padding: 13px 20px;
-      margin-top: 25px;
-      border-radius: 3px;
-      font-size: .9rem;
-      transition: .2s;
+    .hero-image-wrap {
+      margin-top: 43px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      box-shadow: 0 18px 45px rgba(65, 45, 25, 0.08);
+      transform: rotate(-0.5deg);
     }
 
-    .button-main:hover {
-      background: var(--brown);
-      transform: translateY(-2px);
-    }
-
-    .hero-frame {
-      background: var(--white);
-      padding: 12px 12px 0;
-      box-shadow: 0 18px 40px #35271e18;
-      transform: rotate(2deg);
-    }
-
-    .hero-frame img {
+    .hero-image {
       display: block;
       width: 100%;
-      aspect-ratio: 4 / 3;
+      height: clamp(240px, 53vw, 620px);
       object-fit: cover;
-      background: var(--paper-dark);
+      background: #e4d8c7;
     }
 
-    .photo-caption {
-      text-align: center;
-      padding: 13px 5px;
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
+    .image-caption {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 14px 8px 4px;
       color: var(--muted);
+      font-family: "Playfair Display", serif;
+      font-size: 14px;
+      font-style: italic;
     }
 
     .gallery-section {
+      padding: 80px 7% 95px;
+      background: var(--paper);
       border-top: 1px solid var(--line);
-      padding: 75px 0 90px;
+      border-bottom: 1px solid var(--line);
     }
 
     .section-heading {
-      text-align: center;
-      margin-bottom: 35px;
+      max-width: 1400px;
+      margin: 0 auto 35px;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 18px;
     }
 
     .section-heading h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
+      margin-top: 8px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(35px, 5vw, 55px);
+      font-weight: 500;
       line-height: 1.2;
-      margin: 12px 0;
     }
 
     .section-heading p {
+      max-width: 330px;
       color: var(--muted);
-      font-size: .92rem;
+      font-size: 13px;
     }
 
     .gallery-card {
-      max-width: 750px;
+      max-width: 950px;
       margin: auto;
-      padding: 17px;
-      background: var(--white);
-      box-shadow: 0 18px 45px #35271e18;
+      padding: 13px;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 15px 40px rgba(65, 45, 25, 0.08);
     }
 
     .gallery-image {
       display: block;
       width: 100%;
-      height: clamp(260px, 55vw, 460px);
+      height: clamp(260px, 60vw, 620px);
       object-fit: contain;
-      background: #e9dfcf;
+      background: #e9e0d3;
     }
 
     .gallery-meta {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       gap: 12px;
-      margin: 16px 0 10px;
-      color: var(--muted);
-      font-size: .73rem;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
+      padding: 17px 5px 5px;
+    }
+
+    .gallery-title {
+      font-family: "Playfair Display", serif;
+      font-size: 20px;
     }
 
     .counter {
-      color: var(--brown);
-      font-weight: 700;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
       white-space: nowrap;
     }
 
-    .quote-area {
-      border-top: 1px solid var(--line);
-      padding: 25px 10px 10px;
+    .quote {
+      max-width: 700px;
+      min-height: 100px;
+      margin: 30px auto 20px;
+      padding: 0 15px;
       text-align: center;
     }
 
-    .quote-symbol {
-      font-family: 'Playfair Display', serif;
-      color: #b69a74;
-      font-size: 3.5rem;
+    .quote-mark {
+      color: var(--accent);
+      font-family: "Playfair Display", serif;
+      font-size: 44px;
       line-height: 1;
     }
 
-    blockquote {
-      max-width: 580px;
-      margin: 10px auto;
-      font-size: clamp(1.3rem, 3vw, 1.8rem);
+    .quote p {
+      margin-top: 5px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(18px, 3vw, 25px);
+      font-style: italic;
       line-height: 1.5;
     }
 
-    .quote-note {
+    .quote small {
+      display: block;
+      margin-top: 10px;
       color: var(--muted);
-      font-size: .85rem;
+      font-size: 12px;
     }
 
-    .controls {
+    .gallery-controls {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
       flex-wrap: wrap;
-      margin-top: 23px;
+      gap: 12px;
+      margin-top: 28px;
     }
 
-    .control-button {
-      border: 1px solid var(--brown);
-      background: transparent;
+    .control-btn {
+      min-width: 120px;
+      padding: 11px 20px;
       color: var(--brown);
-      padding: 10px 17px;
-      border-radius: 3px;
+      background: transparent;
+      border: 1px solid var(--line);
+      border-radius: 2px;
       cursor: pointer;
-      transition: .2s;
+      transition: 0.2s;
     }
 
-    .control-button:hover:not(:disabled) {
+    .control-btn:hover {
+      color: var(--paper);
       background: var(--brown);
-      color: white;
-    }
-
-    .control-button:disabled {
-      opacity: .35;
-      cursor: not-allowed;
+      border-color: var(--brown);
     }
 
     .dots {
       display: flex;
       justify-content: center;
-      gap: 10px;
-      margin-top: 20px;
+      gap: 9px;
+      margin: 20px 0 0;
     }
 
     .dot {
       width: 9px;
       height: 9px;
-      border: 0;
+      padding: 0;
+      background: #d6c7b4;
+      border: none;
       border-radius: 50%;
-      background: #cbb89c;
       cursor: pointer;
+      transition: 0.2s;
     }
 
     .dot.active {
       background: var(--brown);
-      transform: scale(1.3);
+      transform: scale(1.25);
     }
 
     .closing {
-      padding: 65px 20px;
-      background: var(--paper-dark);
+      padding: 85px 7%;
       text-align: center;
     }
 
     .closing h2 {
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      margin: 10px 0;
+      max-width: 750px;
+      margin: 12px auto 18px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(32px, 5vw, 53px);
+      font-weight: 500;
+      line-height: 1.25;
     }
 
     .closing p {
-      max-width: 550px;
+      max-width: 560px;
       margin: auto;
       color: var(--muted);
-      font-size: .92rem;
+      font-size: 14px;
     }
 
-    footer {
-      padding: 25px 0;
-      text-align: center;
+    .footer {
+      padding: 25px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
       color: var(--muted);
-      font-size: .78rem;
+      background: #eee4d5;
+      border-top: 1px solid var(--line);
+      font-size: 11px;
+      letter-spacing: 0.5px;
     }
 
-    @media (max-width: 700px) {
+    .footer strong {
+      color: var(--brown);
+    }
+
+    .image-error {
+      padding: 25px;
+      color: #754b3b;
+      text-align: center;
+      background: #f0e4d7;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
       .navbar {
-        padding: 17px 0;
+        min-height: 65px;
+        padding: 15px 5%;
       }
 
-      .nav-links {
-        gap: 13px;
-        font-size: .78rem;
+      .brand {
+        font-size: 18px;
       }
 
       .hero {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        padding: 55px 0 70px;
+        padding: 55px 5% 65px;
       }
 
-      .hero-copy {
-        text-align: center;
-      }
-
-      .hero-copy p {
-        margin: auto;
-      }
-
-      h1 {
+      .hero h1 {
         letter-spacing: -1px;
       }
 
-      .hero-frame {
-        width: 90%;
-        margin: auto;
-      }
-
       .gallery-section {
-        padding: 60px 0;
+        padding: 60px 5% 70px;
       }
 
       .gallery-card {
-        padding: 10px;
+        padding: 8px;
       }
 
-      .gallery-image {
-        height: 300px;
+      .gallery-meta {
+        align-items: start;
       }
 
-      .control-button {
-        padding: 10px 12px;
-        font-size: .85rem;
+      .gallery-title {
+        font-size: 17px;
+      }
+
+      .control-btn {
+        min-width: 105px;
+        padding: 10px 13px;
+        font-size: 13px;
+      }
+
+      .closing {
+        padding: 65px 6%;
+      }
+
+      .footer {
+        justify-content: center;
+        text-align: center;
       }
     }
 
@@ -367,172 +391,220 @@
       html {
         scroll-behavior: auto;
       }
+
+      *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+      }
     }
   </style>
 </head>
 
 <body>
-  <header class="container">
-    <nav class="navbar" aria-label="Navigasi utama">
-      <a class="brand" href="#beranda">MEMORY <span>03.</span></a>
-      <div class="nav-links">
-        <a href="#beranda">Beranda</a>
-        <a href="#galeri">Galeri</a>
-      </div>
-    </nav>
-  </header>
+  <nav class="navbar">
+    <a class="brand" href="#">Memory <span>Angkatan 3.</span></a>
+    <a class="nav-link" href="#galeri">Lihat Galeri ↗</a>
+  </nav>
 
   <main>
-    <section class="hero container" id="beranda">
-      <div class="hero-copy">
-        <span class="eyebrow">Album cerita kita</span>
-        <h1>Satu Angkatan,<br><em>Seribu Kenangan.</em></h1>
-        <p>
-          Setiap foto menyimpan cerita, setiap cerita menjadi kenangan.
-          Sebuah ruang kecil untuk menyimpan momen yang pernah kita lalui.
-        </p>
-        <a class="button-main" href="#galeri">Jelajahi Kenangan →</a>
-      </div>
+    <section class="hero">
+      <p class="eyebrow">Album Kenangan · Angkatan 3</p>
 
-      <div class="hero-frame">
+      <h1>Waktu berlalu,<br><em>cerita tetap tinggal.</em></h1>
+
+      <p class="hero-description">
+        Setiap foto menyimpan cerita, setiap cerita menjadi kenangan.
+        Sebuah ruang kecil untuk menyimpan momen yang tak ingin kita lupakan.
+      </p>
+
+      <div class="hero-image-wrap">
         <img
+          class="hero-image"
           src="images/foto-utama.jpeg"
-          alt="Foto sampul Memory Angkatan 3"
+          alt="Foto utama Memory Angkatan 3"
+          onerror="this.outerHTML='<div class=&quot;image-error&quot;>Foto utama belum ditemukan. Periksa nama file di folder images.</div>'"
         >
-        <div class="photo-caption">A little piece of our story.</div>
+        <div class="image-caption">
+          <span>Our days, our stories.</span>
+          <span>Memory Angkatan 3</span>
+        </div>
       </div>
     </section>
 
     <section class="gallery-section" id="galeri">
-      <div class="container">
-        <div class="section-heading">
-          <span class="eyebrow">Disimpan dalam ingatan</span>
-          <h2>Album Kenangan</h2>
-          <p>Empat foto, banyak cerita yang tak selalu bisa diucapkan.</p>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Potongan waktu</p>
+          <h2>Galeri Kenangan.</h2>
         </div>
+        <p>
+          Geser dari satu kenangan ke kenangan lainnya.
+          Karena momen sederhana pun layak untuk dikenang.
+        </p>
+      </div>
 
-        <div class="gallery-card">
-          <img
-            class="gallery-image"
-            id="galleryImage"
-            src="images/foto-1.jpg"
-            alt="Kenangan pertama"
-          >
+      <div class="gallery-card">
+        <img
+          id="galleryImage"
+          class="gallery-image"
+          src="images/foto-1.jpg"
+          alt="Kenangan Angkatan 3, foto 1"
+        >
 
-          <div class="gallery-meta">
-            <span>Memory collection</span>
-            <span class="counter" id="counter">01 / 04</span>
-          </div>
-
-          <div class="quote-area" aria-live="polite">
-            <div class="quote-symbol" aria-hidden="true">“</div>
-            <blockquote id="quote">
-              Jangan takut berjalan perlahan, selama kamu tidak berhenti bertumbuh.
-            </blockquote>
-            <p class="quote-note" id="quoteNote">Tentang perjalanan kehidupan</p>
-          </div>
-
-          <div class="controls">
-            <button class="control-button" id="previous" type="button">
-              ← Sebelumnya
-            </button>
-            <button class="control-button" id="next" type="button">
-              Selanjutnya →
-            </button>
-          </div>
-
-          <div class="dots" id="dots" aria-label="Pilih foto"></div>
+        <div class="gallery-meta">
+          <h3 class="gallery-title" id="galleryTitle">Kenangan #01</h3>
+          <span class="counter" id="counter">01 / 07</span>
         </div>
       </div>
+
+      <div class="quote" aria-live="polite">
+        <div class="quote-mark">“</div>
+        <p id="quoteText">Hal-hal sederhana sering kali menjadi kenangan paling berharga.</p>
+        <small id="quoteAuthor">— Tidak diketahui</small>
+      </div>
+
+      <div class="gallery-controls">
+        <button class="control-btn" id="prevBtn" type="button">← Sebelumnya</button>
+        <button class="control-btn" id="nextBtn" type="button">Berikutnya →</button>
+      </div>
+
+      <div class="dots" id="dots" aria-label="Pilih foto"></div>
     </section>
 
     <section class="closing">
-      <span class="eyebrow">Untuk cerita yang pernah ada</span>
-      <h2>Waktu terus berjalan.</h2>
+      <p class="eyebrow">Untuk hari-hari yang pernah ada</p>
+      <h2>Suatu hari nanti, foto-foto ini akan bercerita kembali.</h2>
       <p>
-        Mungkin jalan kita akan berbeda, tetapi pengalaman dan pelajaran
-        yang pernah kita bagi akan tetap menjadi bagian dari perjalanan kita.
+        Mungkin waktu akan membawa kita ke jalan yang berbeda.
+        Namun cerita yang pernah kita bagi akan selalu punya tempatnya sendiri.
       </p>
     </section>
   </main>
 
-  <footer class="container">
-    Memory Angkatan 3 · Dibuat untuk menyimpan cerita.
+  <footer class="footer">
+    <span>© <strong>Memory Angkatan 3</strong></span>
+    <span>Dibuat untuk menyimpan cerita, bukan melupakan waktu.</span>
   </footer>
 
   <script>
-    const memories = [
+    const photos = [
       {
-        image: "images/foto-1.jpg",
-        quote: "Jangan takut berjalan perlahan, selama kamu tidak berhenti bertumbuh.",
-        note: "Tentang perjalanan kehidupan"
+        src: "images/foto-1.jpg",
+        title: "Kenangan #01",
+        quote: "Hal-hal sederhana sering kali menjadi kenangan paling berharga.",
+        author: "— Tidak diketahui"
       },
       {
-        image: "images/foto-2.jpeg",
-        quote: "Hal-hal sederhana sering kali menjadi kenangan yang paling berharga.",
-        note: "Tentang arti sebuah kenangan"
+        src: "images/foto-2.jpeg",
+        title: "Kenangan #02",
+        quote: "Kita tidak mengingat hari, kita mengingat momen.",
+        author: "— Cesare Pavese"
       },
       {
-        image: "images/foto-3.jpeg",
-        quote: "Kita tidak bisa mengulang waktu, tetapi kita bisa belajar dari setiap langkah.",
-        note: "Tentang waktu dan pembelajaran"
+        src: "images/foto-3.jpeg",
+        title: "Kenangan #03",
+        quote: "Jangan menangisi karena sudah berlalu, tersenyumlah karena pernah terjadi.",
+        author: "— Dr. Seuss"
       },
       {
-        image: "images/foto-4.jpeg",
-        quote: "Jangan hanya mengejar tujuan; hargai juga perjalanan yang membawamu ke sana.",
-        note: "Tentang proses dan masa depan"
+        src: "images/foto-4.jpeg",
+        title: "Kenangan #04",
+        quote: "Hidup bergerak maju, tetapi kenangan membuat kita bisa menengok kembali.",
+        author: "— Refleksi"
+      },
+      {
+        src: "images/foto-5.jpg",
+        title: "Kenangan #05",
+        quote: "Kebahagiaan terasa nyata saat dibagikan bersama orang lain.",
+        author: "— Refleksi"
+      },
+      {
+        src: "images/foto-6.jpeg",
+        title: "Kenangan #06",
+        quote: "Pada akhirnya, yang tinggal bukan waktu yang kita punya, melainkan cerita yang kita buat.",
+        author: "— Refleksi"
+      },
+      {
+        src: "images/foto-7.jpeg",
+        title: "Kenangan #07",
+        quote: "Masa lalu adalah pelajaran, hari ini adalah kesempatan.",
+        author: "— Refleksi"
       }
     ];
 
     let currentIndex = 0;
 
     const galleryImage = document.getElementById("galleryImage");
+    const galleryTitle = document.getElementById("galleryTitle");
     const counter = document.getElementById("counter");
-    const quote = document.getElementById("quote");
-    const quoteNote = document.getElementById("quoteNote");
-    const previousButton = document.getElementById("previous");
-    const nextButton = document.getElementById("next");
+    const quoteText = document.getElementById("quoteText");
+    const quoteAuthor = document.getElementById("quoteAuthor");
     const dotsContainer = document.getElementById("dots");
 
-    function showMemory(index) {
-      currentIndex = index;
-      const memory = memories[currentIndex];
+    function showPhoto(index) {
+      currentIndex = (index + photos.length) % photos.length;
+      const photo = photos[currentIndex];
 
-      galleryImage.src = memory.image;
-      galleryImage.alt = `Kenangan ${currentIndex + 1} dari ${memories.length}`;
+      galleryImage.onerror = function () {
+        this.alt = "Foto tidak ditemukan: " + photo.src;
+        this.style.display = "none";
+
+        if (!this.nextElementSibling ||
+            !this.nextElementSibling.classList.contains("image-error")) {
+          const error = document.createElement("div");
+          error.className = "image-error";
+          error.textContent = "Foto tidak ditemukan: " + photo.src +
+            ". Periksa nama dan ekstensi file di folder images.";
+          this.insertAdjacentElement("afterend", error);
+        }
+      };
+
+      galleryImage.onload = function () {
+        this.style.display = "block";
+        const next = this.nextElementSibling;
+        if (next && next.classList.contains("image-error")) {
+          next.remove();
+        }
+      };
+
+      galleryImage.style.display = "block";
+      galleryImage.src = photo.src;
+      galleryImage.alt = photo.title + " — Memory Angkatan 3";
+      galleryTitle.textContent = photo.title;
       counter.textContent =
-        `${String(currentIndex + 1).padStart(2, "0")} / ${String(memories.length).padStart(2, "0")}`;
+        String(currentIndex + 1).padStart(2, "0") +
+        " / " + String(photos.length).padStart(2, "0");
+      quoteText.textContent = photo.quote;
+      quoteAuthor.textContent = photo.author;
 
-      quote.textContent = memory.quote;
-      quoteNote.textContent = memory.note;
-
-      previousButton.disabled = currentIndex === 0;
-      nextButton.disabled = currentIndex === memories.length - 1;
-
-      Array.from(dotsContainer.children).forEach((dot, i) => {
+      document.querySelectorAll(".dot").forEach((dot, i) => {
         dot.classList.toggle("active", i === currentIndex);
         dot.setAttribute("aria-current", i === currentIndex ? "true" : "false");
       });
     }
 
-    memories.forEach((memory, index) => {
+    photos.forEach((photo, index) => {
       const dot = document.createElement("button");
+      dot.className = "dot" + (index === 0 ? " active" : "");
       dot.type = "button";
-      dot.className = "dot";
-      dot.setAttribute("aria-label", `Tampilkan foto ${index + 1}`);
-      dot.addEventListener("click", () => showMemory(index));
+      dot.setAttribute("aria-label", "Buka foto " + (index + 1));
+      dot.addEventListener("click", () => showPhoto(index));
       dotsContainer.appendChild(dot);
     });
 
-    previousButton.addEventListener("click", () => {
-      if (currentIndex > 0) showMemory(currentIndex - 1);
+    document.getElementById("prevBtn").addEventListener("click", () => {
+      showPhoto(currentIndex - 1);
     });
 
-    nextButton.addEventListener("click", () => {
-      if (currentIndex < memories.length - 1) showMemory(currentIndex + 1);
+    document.getElementById("nextBtn").addEventListener("click", () => {
+      showPhoto(currentIndex + 1);
     });
 
-    showMemory(0);
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") showPhoto(currentIndex - 1);
+      if (event.key === "ArrowRight") showPhoto(currentIndex + 1);
+    });
+
+    showPhoto(0);
   </script>
 </body>
 </html>
